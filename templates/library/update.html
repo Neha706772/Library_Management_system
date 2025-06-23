@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{%extends 'library/base.html'%}
+{%load static%}
+{%block body_block%}
+   <h1>Update Record</h1>
+  <form method="post">
+      {{form.as_p}}
+      {%csrf_token%}
+      <input type="submit" class="btn btn-success btn-lg" name="" value="Update records">
+  </form>
+{% endblock %}

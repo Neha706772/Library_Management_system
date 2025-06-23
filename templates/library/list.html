@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'library/base.html' %}
+{%load static%}
+{% block body_block %}
+{% if list_object %}
+<table border="3">
+    <thead>
+       <tr>
+           <th>Title</th>
+           <th>Author</th>
+           <th>Isbn</th>
+           <th>Quantity</th>
+           <th>Edit</th>
+           <th>Delete</th>
+           <th>Views</th>
+       </tr>
+    </thead>
+    <tbody>
+    {% for bn in list_object %}
+    <tr>
+        <td>{{ bn.title }}</td>
+        <td>{{ bn.author }}</td>
+        <td>{{ bn.isbn }}</td>
+        <td>{{ bn.quantity }}</td>
+        <td><a href="{% url 'update' bn.pk %}">Edit</a></td>
+        <td><a href="/delete/{{ bn.pk }}">Delete</a></td>
+        <td><a href="{% url 'book-detail' bn.pk %}">Details</a></td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+   <p>File Not Found!!</p>
+{% endif %}
+<h2><a href="insert" class="btn">New Record Insert</a></h2>
+{% endblock %}
+

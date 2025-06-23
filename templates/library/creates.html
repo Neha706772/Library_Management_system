@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'library/base.html' %}
+{%load static%}
+{% block body_block %}
+<h2>Create New Book</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Create</button>
+</form>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}
